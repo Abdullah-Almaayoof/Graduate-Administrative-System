@@ -1,8 +1,8 @@
 # Graduate-Administrative-System
 
 The APPS system provides an online application and admission review system for students seeking admission to the graduate programs (Masters and PhD degrees). 
-•	A graduate applicant goes to a website and enters their information (needed to apply for admission) into the database. Applicants can check their application status online – the status is one of three (i) application incomplete (ii) application complete and under review and (iii) decision (admit or reject). 
-•	The graduate admissions committee reviews applications and makes a decision -- Admit, Admit with Aid, or Reject. We want this review process to be automated, wherein the faculty reviewer can enter their scores into a review form
+A graduate applicant goes to a website and enters their information (needed to apply for admission) into the database. Applicants can check their application status online – the status is one of three (i) application incomplete (ii) application complete and under review and (iii) decision (admit or reject). 
+The graduate admissions committee reviews applications and makes a decision -- Admit, Admit with Aid, or Reject. We want this review process to be automated, wherein the faculty reviewer can enter their scores into a review form
 
 You will eventually deploy your system on our production server using MySQL and Python Flask. Remember that you will need to integrate your application with other modules in Phase 2 – so be careful about what other software you use.
 
@@ -13,7 +13,7 @@ Description of the APPS System
 The APPS component provides an online application and admissions review system. The application review process requires (potentially) multiple reviewers to enter data to reach a decision. The system changes the status of an applicant to a final status of admit or reject. The final decision (of admit, admit with aid or reject) is made by one of two users (the Graduate Secretary -- GS or Chair of Admissions Committee -- CAC), and the final decision must be stored in the system. A prospective graduate student, henceforth referred to as a ‘graduate applicant’, visits the URL for the admissions/applications component. They are presented with an online application form which they proceed to fill out if they are applying to the graduate program. Once the application is complete their application is evaluated by a faculty committee and a final decision is made.
 
 APPS Workflow:  You must implement the workflow described below. For specific data needed for this application, refer to the information below as well as your analysis of what other data may be required. 
-•	 A graduate applicant visits a specific URL and enters data (into a form) to apply for admission. When they have completed filling in all the information they submit their application.
+A graduate applicant visits a specific URL and enters data (into a form) to apply for admission. When they have completed filling in all the information they submit their application.
 o	The system must let them create an account/password so they can log into the system to enter their application and later to check their admission status.
 o	They fill out their personal information and their academic information:
 	Personal information includes address and their social security number
