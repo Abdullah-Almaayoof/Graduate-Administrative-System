@@ -1,5 +1,7 @@
 # Graduate-Administrative-System
 
+## Application Processing System
+
 The APPS system provides an online application and admission review system for students seeking admission to the graduate programs (Masters and PhD degrees). 
 A graduate applicant goes to a website and enters their information (needed to apply for admission) into the database. Applicants can check their application status online – the status is one of three (i) application incomplete (ii) application complete and under review and (iii) decision (admit or reject). 
 The graduate admissions committee reviews applications and makes a decision -- Admit, Admit with Aid, or Reject. We want this review process to be automated, wherein the faculty reviewer can enter their scores into a review form
