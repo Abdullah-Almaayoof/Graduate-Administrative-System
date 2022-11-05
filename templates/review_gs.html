@@ -1,0 +1,103 @@
+<html>
+  <head>
+    <title>
+      Application for {{application['fname']}}   
+    </title>
+    <!-- Bootstrap 4.6 -->
+<!-- Other Grepper results are for 3.4.1 -->
+<!-- Latest minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+
+<!-- JS Bundle and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">DAS University</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Application
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+  <h4>{{mess}}</h4>
+  {% for object in application %}
+  <h1><strong>Application for: {{object['fname']}} {{object['lname']}} ({{object['id']}}) (GS VIEW)</strong></h1>
+  <h3> Application Status: {{object['complete']}}  </h3>
+  
+   
+        <h6>Write "received" (all lower case) if the transcripts for this application have been received:</h6>
+        <ul>
+          <li>NOTE: if the transcript status is the integer 3, every part of the application is completed</li>
+          <li>Only mark as received once. You will be able to mark as received more than once but do not do so</li>
+          <li>integer value for transcript status will be incremented by 1 when application is marked as received</li>
+        </ul>    
+        <form action = "/update_application_transcript/{{object['id']}}" method = "POST"> 
+          <label for="choice">Transcript status:</label><br>
+          <select name="transcript_status" id="transcript_status">
+            <option value=""></option>
+            <option value="received">Received</option>
+          </select><br>
+          <input type="submit" value="Update Transcript Status">
+        </form>
+         
+
+
+        <h6>Write "admit" (all lower case) to admit this applicant</h6>
+        <ul>
+          <li>NOTE: here you can update the status of the application with regards to admission with 2 options</li>
+          <li>Option 1: admit</li>
+          <li>Option 2: deny</li>
+          <li>Leave blank if decision is still pending</li>
+          <li>If you update with a valid option, you will get a success message. Otherwise, you will get an error stating that the status is still pending with regards to admission</li>
+        </ul>    
+        <form action = "/update_application_admission/{{object['id']}}" method = "POST"> 
+          <label for="decision">Decision:</label><br>
+          <select name="admission_status" id="admission_status">
+            <option value=""></option>
+            <option value="admit">Admit</option>
+            <option value="deny">Deny</option>
+          </select><br>
+          <input type="submit" value="Update Admission Status">
+        </form>
+ 
+    <h4>Applying for: {{object['app_degree']}}</h4>
+    <h4>Semester: {{object['semester']}}</h4>
+  <h2><strong>Tests</strong><h2>
+    <h4>GRE:</h4> 
+    <h4>Verbal Score:{{object['gre_verbal']}} Quantitaive Score:{{object['gre_quant']}} Year:{{object['gre_year']}}</h4>
+    <h4>GRE Advanced:<h4>
+    <h4>Score:{{object['gre_adv_score']}} Subject:{{object['gre_adv_sub']}}</h4>
+    <h4>TOEFL:</h4> 
+    <h4>Score:{{object['toefl_score']}} Year:{{object['toefl_year']}}</h4>
+    <h2>Extra Information</h2>
+    <h4>Areas of Interest: {{object['area_interest']}}</h4>
+    <h4>Experience: {{object['experience']}}</h4>    
+  {% endfor %}
+  {% for object in degree%}
+  <h2><strong>Degree(s)</h2></strong>
+    <h4>Degree Name:{{object['degree_name']}}</h4>
+    <h4>GPA:{{object['gpa']}}</h4>
+    <h4>Major:{{object['major']}}</h4>
+    <h4>Degree Year:{{object['degree_year']}}</h4>
+    <h4>University:{{object['university']}}</h4>
+  {% endfor %}
+  <hr style="height:5px;border-width:0;color:gray;background-color:gray;">
+  <div>
+
+</div>
+</body>
+</html>

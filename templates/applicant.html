@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <title>applicant page</title>
+        <!-- Latest minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    </head> 
+    <body style="background-color:floralwhite">
+        <div class="text text-center">
+            <h1>Applicant View</h1>
+            <table style = "width:80%" class="text text-center">
+                <a href="/logout">Sign Out</a>
+                <h3>Hello, {{fname}}!</h3>
+
+
+                <div class="display">
+                    <div class="forms">
+                        <h4 align="left"> Applications: </h4>
+                        {% if not formsExist %}
+	                        <div id="">
+		                        <h3>No application submitted, <a href="/application">Apply Here</a></h3>
+                            </div>
+                        {% else %}
+
+                            <h6>University ID: {{uid}}</h6>
+                            <h6>Application status: {{status}}</h6>
+
+                            {% if not refEmail %}
+                                <h6>*Recommendation Letter Recieved*</h6>
+                            {% else %}
+                                <div id="refEmail">
+                                    <h3><a href="/recLetter?refEmail={{refEmail}}">{{refEmail}}, Please Click Here to fill out Recommendation Letter</a></h3>
+                                </div>
+                            {% endif %}
+
+                        {% endif %}
+                        
+                    </div>
+                </div>
+            </table>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,69 @@
+<html>
+  <head>
+    <title>
+      signup Page
+    </title>
+    <!-- Bootstrap 4.6 -->
+<!-- Other Grepper results are for 3.4.1 -->
+<!-- Latest minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+
+<!-- JS Bundle and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">DAS University</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor01">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Add New User
+            <span class="visually-hidden"></span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<br>
+<br>
+<div>
+  <form action="/sysadmin_adduser" method="POST" autocomplete="off">
+  <div class="text text-center">
+    <h2>Add User below (SYSADMIN)</h2>
+    <h6 align='left'> {{errmsg}} </h6>
+
+  <label for="firstName">New User's First Name*:</label><br>
+    <input required type="text"class="form-control"placeholder="Enter first name" id="fname" name="fname" ><br>
+
+  <label  for="lastName">New User's Last Name*:</label><br>
+    <input required type="text" class="form-control" placeholder="Enter last name" id="lname" name="lname"><br><br>
+    
+  <label  for="username">New User's Email*:</label><br>
+    <input required type="text"class="form-control"placeholder="Enter Email" id="email" name="email" ><br>
+
+  <label  for="password">New User's Password*:</label><br>
+    <input required type="password" class="form-control" placeholder="Enter password" id="pass" name="pass"><br><br>
+
+  <label  for="ssn">New User's ssn*:</label><br>
+    <input required type="ssn" class="form-control" placeholder="Enter SSN" id="ssn" name="ssn"><br><br>
+    
+  <label  for="address">New User's Address:</label><br>
+    <input type="address" class="form-control" placeholder="Enter Address" id="address" name="address"><br><br>
+
+  <label  for="address">New User's Role*: ONLY write "applicant", "reviewer", "cac", or "gs" in all lowercase exactly as written here (no quotation marks)</label><br>
+    <input required type="address" class="form-control" placeholder="Enter Role" id="role" name="role"><br><br>
+
+        <input type="submit" value="Add New User">
+      </div>
+      </form>
+  </div>
+</div>
+</body>
+</html>

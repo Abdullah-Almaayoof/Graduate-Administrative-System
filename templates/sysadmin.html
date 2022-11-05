@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <title>Sysadmin Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    </head> 
+    <body style="background-color:floralwhite">
+        <div class="text text-center">
+            {{mess}}
+            <h1>Sysadmin View</h1>
+            <table style = "width:80%" class="text text-center">
+                <h2>Welcome back, Systems Administrator!</h2>
+                <a href="/logout">Sign Out</a>
+                <h3>All Accounts (Users) in Database Below</h3>
+
+
+                <div class="display">
+                    <div class="forms">
+                        <h4 align="left"> All Existing Users: </h4>
+                        {% if not formsExist %}
+	                        <div id="signInButton">
+		                        <h3>No Users in Database</h3>
+                            </div>
+                        {% endif %}
+                            <ol>
+                                {% for row in forms %}
+                                <li align="left"> {{row.get('fname')}} {{row.get('lname')}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    uid: {{row.get('uid')}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; email: {{row.get('email')}} &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; role: {{row.get('role')}}
+                                </a></li>
+                                {% endfor %}
+                            </ol>
+                            <div id="">
+		                        <h3><a href="/sysadmin_adduser">Add New User Here</a></h3>
+                            </div>
+                    </div>
+                </div>
+            </table>
+        </div>
+    </body>
+</html>
