@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  	<title>student info</title>
+      <script src="/static/js/validations2.js"></script>
+      <link rel="stylesheet" href="/static/css/create_user.css">
+    
+      <body>
+        <div class="login-box">
+            <h2>Student Info</h2>
+            <h2>{{msg}}</h2>
+            <form action="/enter_info" name="validation" onsubmit="validateForm()" method="POST" required>
+                <div class="user-box">
+                <input type = "text" name="fname" placeholder="First Name" required maxlength="50">
+                <input type = "text" name="lname" placeholder="Last Name" required maxlength="50">
+                <!-- <input tyep = "text" name="program" placeholder="Program" required=""> -->
+                <input type = "email" name="email" placeholder="Email" required maxlength="50">
+                <input type = "text" name="address" placeholder="Address" required maxlength="50">
+                <input type = "text" name="ssn" placeholder="SSN" pattern="[0-9]{9}">
+            </form>
+             <a>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input type = "submit" value = "Submit" name = "Button">
+            </a>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  	<title>Review</title>
+    <link href="/static/css/style2.css" rel="stylesheet" type="text/css" />
+
+    <h1 style="text-align:center">All Pending Requests</h1>
+    <body style="text-align:center">
+    <p style="text-align:center"> {{msg}}</p>
+        {% for i in studentinfo %}
+           <p> {{i['uid']}} : {{i['fname']}} {{i['lname']}} </p>
+           <ul> 
+           {% for j in i['program_study'] %}
+        <li>{{j['course_id']}} : {{j['grade']}}</li>
+            {% endfor %}
+        </ul>
+            <p> GPA: {{i['gpa']}} </p>
+            <form action="/review_grad_status" method="POST">
+                <input class="press" type = "submit" value = "Submit for Graduation" name = "Button">
+                <input type = "hidden" name = "uid" value ="{{i['uid']}}">
+            </form>
+        {% endfor %}          
+        <form action="/review_grad_status" method = "POST">
+            <input class="press" type="submit" value ="Back to Home" name = "Button">
+        </form>
+      </body>
+
+</html>

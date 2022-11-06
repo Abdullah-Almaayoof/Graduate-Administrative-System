@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  	<title>Update Info</title>
+      <script src="/static/js/validations.js"></script>
+      <link rel="stylesheet" href="/static/css/update_info.css">
+
+    <body>
+        <div class = "login-box">
+            <h2>Enter Info</h2>
+            <p style="color:red">{{errormsg}}</p>
+                <form action="/update_info" name="validation" onsubmit= "validateForm()" method="POST" required>
+                    <div class="user-box">
+                    <input type = "text" value="{{result['uname']}}" name ="uname" placeholder="USERNAME" required="">
+                    <input type = "text" value="{{result['fname']}}" name ="fname" placeholder="FIRST NAME" required="">
+                    <input type = "text" value="{{result['lname']}}" name ="lname" placeholder="LAST NAME" required="">
+                    <input type = "text" value="{{result['password']}}" name ="password" placeholder="PASSWORD" required="">
+                    <input type = "text" value="{{result['address']}}" name ="address" placeholder="ADDRESS" required="">
+                    <input type = "text" value="{{result['ss_num']}}"name ="ss_num" placeholder ="SSN" pattern="[0-9]{9}" required="">
+                    <input type = "email" value="{{result['email']}}" name ="email" placeholder = "EMAIL" required="">
+                    <a>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <input type = "submit" value = "Confirm" name = "Button">
+                    </a>
+                </form>
+                <a>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>    
+                    <form action="/update_info" method = "POST">
+                      <input type="submit" value ="Home" name = "Button">
+                    </form>
+                </a>
+        </div>
+    </body>
+</html>

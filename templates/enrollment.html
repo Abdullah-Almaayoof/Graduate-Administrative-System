@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Current Enrollment</title>
+    <link href="/static/css/general_table.css" rel="stylesheet" type="text/css">
+    <script src="../assets/vendor/js/helpers.js"></script>
+  </head>
+  <body>
+
+ <h2 style="text-align:center" class="card-header">{{ semester }} {{ year }}</h2>
+    <div class="table_wrapper">
+    <table class="fl-table" style ="width: 100%">
+      <thead class="table-light">
+        <tr>
+          <th>Subject</th>
+          <th>Course</th>
+          <th>Title</th>
+          <th>Credit Hours</th>
+          <th>
+            <form method="GET" action="/enrollmentsearch">
+                <input placeholder="Search Courses..." type="text" name="query">
+            </form>
+          </th>
+        </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+        {% for course in courses: %}
+        <tr>
+          <td> {{course['dept']}}</td>
+          <td> {{course['cnum']}}</td>
+          <td> {{course['title']}}</td>
+          <td> {{course['credits']}}</td>
+          {% if course['grade'] == 'IP': %}
+          <form action= '/drop/{{ course['courseid'] }}' method="POST">
+          <td> <input type="submit" value="Drop course" class="press"></td>
+          </form>
+          {% else: %}
+          <td> Grade: {{course['grade']}}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+      </table>
+    </div>
+    <hr class="my-5" />
+    <a type="button" href="/" class="press">
+      <span class="tf-icons bx bx-home-alt"></span>&nbsp; Home
+    </a>
+  </div>
+    
+  </body>
+
+</html>

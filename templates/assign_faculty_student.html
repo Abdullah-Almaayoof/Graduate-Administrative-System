@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>assign_faculty_student</title>
+<link rel="stylesheet" href="/static/css/create_user.css">
+</head>
+
+<body>
+    <div class="login-box">
+        <h2>Assign Advisor to Student</h2>
+        <h2> {{msg}} </h2>
+        <form action="/assign_faculty_student" method = "POST">
+            <div class="user-box">
+            <input type="text" id="student" name="student" placeholder="Student ID">
+            <input type="text" id="faculty" name="faculty" placeholder="Faculty ID">
+            <input type="text" id="department" name="department" placeholder="Department">
+            
+            <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input type="submit" value="Submit">
+            </a>
+            </form>
+            <a>
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                <form action="/assign_faculty_student" method = "POST">
+                    <input type="submit" value ="Home" name = "Button">
+                </form>
+            </a>
+    </div>
+</body>
+            <!-- <label for="student">Student ID:</label>
+            <input type="text" id="student" name="student"><br><br>
+            <label for="faculty">Faculty ID:</label>
+            
+            <input type="text" id="faculty" name="faculty"><br><br>
+            
+            <label for="student">Department:</label>
+            <input type="text" id="department" name="department"><br><br>
+
+            <input type="submit" value="Submit">
+          </form>
+          
+          <p>Click the "Submit" button and the student will be assigned to faculty</p>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">faculty_id</th>
+                <th scope="col">department</th>
+                <th scope="col">student_id</th>
+          
+              </tr>
+            </thead>
+            <tbody>
+                {% for result in results: %} 
+                    <tr>
+                
+                 <td>    {{ result['fid'] }}    </td>
+                 <td>    {{ result['dname'] }}   </td>
+                 <td>   {{ result['student_id'] }}    </td>
+    
+
+                 <td>  
+                    
+                    <form action="/assign_faculty_student" method="POST">
+
+                    
+                        <input type="hidden" id="student_id" name="student_id" value= {{ result[ 'student_id' ] }}>
+                        <input type="hidden" id="faculty_id" name="faculty_id" value= {{ result[ 'fid' ] }}>
+                       
+                        
+                        <input type="submit" name = "Delete" value="Delete">
+                       
+                      
+                      </form>
+                   
+
+                   </td>
+                   
+                    </tr>
+
+                 {% endfor %}
+
+    </body>
+    <form action="/assign_faculty_student" method = "POST">
+        <input type="submit" value ="Back to Home" name = "Button">
+      </form>
+</html> -->

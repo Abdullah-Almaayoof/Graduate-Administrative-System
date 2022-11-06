@@ -1,0 +1,265 @@
+<html>
+  <head>
+    <title>
+      Application for {{application['fname']}}   
+    </title>
+    <!-- Bootstrap 4.6 -->
+<!-- Other Grepper results are for 3.4.1 -->
+<!-- Latest minified CSS -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css"> -->
+<link href="/static/css/gsreview.css" rel="stylesheet" type="text/css"/> 
+<link href="/static/css/general_table.css" rel="stylesheet" type="text/css">
+
+<!-- JS Bundle and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+  </head>
+  <body>
+<br>
+<br>
+<h4>{{mess}}</h4>
+{% for object in application %}
+
+<section class="course1">
+  <div>
+    <div class="course-col">
+      <h1>Application for: {{object['fname']}} {{object['lname']}} ({{object['id']}})</h1>
+      <h3> Application Status: {{object['complete']}}  </h3>
+        
+        {% if appcompleted %}
+        <h3>Transcript has been recieved</h3>  
+      {% else %}
+        <form action = "/update_application_transcript/{{object['id']}}" method = "POST"> 
+          <label for="choice">Transcript status:</label><br>
+          <select name="transcript_status" id="transcript_status">
+            <option value=""></option>
+            <option value="received">Received</option>
+          </select><br>
+          <input type="submit" value="Update Transcript Status">
+        </form>
+      {% endif %}
+      {% if not admitted %}
+      <ul>
+        Update the status of the application with regards to admission with 2 options
+        <br>
+        Option 1: ADMIT
+        <br>
+        Option 2: DENY
+        <br>
+        Leave blank if decision is still pending
+        <br>
+        If you update with a valid option, you will get a success message. Otherwise, you will get an error stating that the status is still pending with regards to admission
+      </ul>    
+      <form action = "/update_application_admission/{{object['id']}}" method = "POST"> 
+        <label for="decision">Decision:</label><br>
+        <select name="admission_status" id="admission_status">
+          <option value=""></option>
+          <option value="admit">Admit</option>
+          <option value="deny">Deny</option>
+        </select><br>
+        <input type="submit" value="Update Admission Status">
+      </form>
+      {% else %}
+        <h3>Student has been admitted</h3>
+      {% endif %}
+    </div>
+  </div>
+</section>  
+
+
+
+<!--   
+    {% if appcompleted %}
+      <h5>Transcript has been recieved</h5>  
+    {% else %}
+      <form action = "/update_application_transcript/{{object['id']}}" method = "POST"> 
+        <label for="choice">Transcript status:</label><br>
+        <select name="transcript_status" id="transcript_status">
+          <option value=""></option>
+          <option value="received">Received</option>
+        </select><br>
+        <input type="submit" value="Update Transcript Status">
+      </form>
+    {% endif %} -->
+       
+
+
+      <!-- <h6>Write "admit" (all lower case) to admit this applicant</h6>
+      <ul>
+        <li>NOTE: here you can update the status of the application with regards to admission with 2 options</li>
+        <li>Option 1: admit</li>
+        <li>Option 2: deny</li>
+        <li>Leave blank if decision is still pending</li>
+        <li>If you update with a valid option, you will get a success message. Otherwise, you will get an error stating that the status is still pending with regards to admission</li>
+      </ul>    
+      <form action = "/update_application_admission/{{object['id']}}" method = "POST"> 
+        <label for="decision">Decision:</label><br>
+        <select name="admission_status" id="admission_status">
+          <option value=""></option>
+          <option value="admit">Admit</option>
+          <option value="deny">Deny</option>
+        </select><br>
+        <input type="submit" value="Update Admission Status">
+      </form> -->
+
+ 
+ 
+ 
+<section class="course1">
+    <div>
+      <div class="course-col">
+        <h1>Applying for: {{object['app_degree']}}</h1>
+        <h1>Semester: {{object['semester']}}</h1>
+      </div>
+    </div>
+</section>
+
+<section class="course">
+  <div class="row">
+    <div class="course-col">
+      <h2>Tests</h2>
+      <h4>GRE:</h4> 
+      <h4>Verbal Score:{{object['gre_verbal']}}</h4>
+      <h4>Quantitaive Score:{{object['gre_quant']}}</h4>
+      <h4>Year:{{object['gre_year']}}</h4>
+      <h4>GRE Advanced:</h4>
+      <h4>Score:{{object['gre_adv_score']}} Subject:{{object['gre_adv_sub']}}</h4>
+      <h4>TOEFL:</h4> 
+      <h4>Score:{{object['toefl_score']}} Year:{{object['toefl_year']}}</h4>
+    </div>
+
+    <div class="course-col">
+      <h2>Extra Information</h2>
+          <h4>Areas of Interest: {{object['area_interest']}}</h4>
+          <h4>Experience: {{object['experience']}}</h4>    
+        {% endfor %}
+        {% for object in degree%}
+    </div>
+
+    <div class="course-col">
+        <h2><strong>Degree(s)</h2></strong>
+          <h4>Degree Name:{{object['degree_name']}}</h4>
+          <h4>GPA:{{object['gpa']}}</h4>
+          <h4>Major:{{object['major']}}</h4>
+          <h4>Degree Year:{{object['degree_year']}}</h4>
+          <h4>University:{{object['university']}}</h4>
+        {% endfor %}
+    </div>
+  </div>
+</section>
+  
+  
+  
+  <hr style="height:5px;border-width:0;color:gray;background-color:gray;">
+  <div>
+
+
+
+
+    {% for object in application %}    
+    <form action="/submit_review/{{object['id']}}" method="POST" autocomplete="off"> 
+      <section class="course1">
+        <div>
+          <div class="course-col">
+            <h1>Review Application Form</h1>
+            <h3> Recommendation Letter Rating (Worst = 1, Best = 5) </h3>
+          </div>
+        </div>
+    </section> 
+
+    <div class="table-wrapper">
+      <table class="fl-table" style ="width: 100%">
+        <thead>
+          <tr>
+          <th>Rating</th>
+          <th>Generic</th>
+          <th>Credible</th>
+          <th>From</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><input type="number" min="1" max="5" class="form-control" placeholder="1-5" id="rating" name="rating"  required><br>
+            <td><input type="text" maxlength="1" pattern="(Y|N)" class="form-control" placeholder="Y/N" id="generic" name="generic" required><br>
+            <td><input type="text" maxlength="1" pattern="(Y|N)" class="form-control" placeholder="Y/N" id="credible" name="credible" required><br>
+            <td><input type="text" pattern="[a-z A-Z ]*" class="form-control" placeholder="Name" id="from" name="from" required><br>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <section class="course">
+      <div class="row">
+        <div class="course-col">
+          <h4>Graduate Admissions Committee (GAS) Review Rating</h4>
+          <h6>Put a number for one of following based on your decision:</h6>
+            <ul>
+              <li>1) Reject</li>
+              <li>2) Borderline Admit</li>
+              <li>3) Admit without Aid</li>
+              <li>4) Admit with Aid</li>   
+            </ul>
+            <input type="number" min="1" max="4" class="form-control" placeholder="Ex: 3" id="gas_rating" name="gas_rating" required>   
+        </div>
+    
+        <div class="course-col">
+          <h4>Deficiency Courses (if any):</h4>
+          <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="List any Missing Courses" id="def_course" name="def_course" >
+          <h4>Chose one of the reasons for Reject:</h4>
+          <ul>
+            <li>A = Incomplete Record</li>
+            <li>B = Does Not Meet Minimum Requirements</li>
+            <li>C = Problems with Letter</li>
+            <li>D = Not Competititve</li>
+            <li>E = Other</li>
+          </ul>
+          <input type="text" maxlength="1" pattern="(A|B|C|D|E)" class="form-control" placeholder="Ex: C" id="reject" name="reject" >
+        </div>
+    
+        <div class="course-col">
+          <h4>GAS Reviewer Comments:</h4>
+          <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="Comment" id="gas_comment" name="gas_comment" >
+          <h4>Recommended Advisor:</h4>
+          <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="Advisor Name" id="advisor" name="advisor" >
+          <br>
+          <!-- <input type="submit" id='submit' value="Submit Review"> -->
+        </div>
+      </div>
+    
+
+      <!-- <h4>Graduate Admissions Committee (GAS) Review Rating</h4>
+      <h6>Put a number for one of following based on your decision:</h6>
+        <ul>
+          <li>1) Reject</li>
+          <li>2) Borderline Admit</li>
+          <li>3) Admit without Aid</li>
+          <li>4) Admit with Aid</li>   
+        </ul>
+        <input type="number" min="1" max="4" class="form-control" placeholder="Ex: 3" id="gas_rating" name="gas_rating" required>     -->
+        
+        <!-- <h4>Deficiency Courses (if any):</h4>
+        <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="List any Missing Courses" id="def_course" name="def_course" >
+        <h4>Chose one of the reasons for Reject:</h4>
+        <ul>
+          <li>A = Incomplete Record</li>
+          <li>B = Does Not Meet Minimum Requirements</li>
+          <li>C = Problems with Letter</li>
+          <li>D = Not Competititve</li>
+          <li>E = Other</li>
+        </ul>
+        <input type="text" maxlength="1" pattern="(A|B|C|D|E)" class="form-control" placeholder="Ex: C" id="reject" name="reject" > -->
+        
+        <!-- <h4>GAS Reviewer Comments:</h4>
+        <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="Comment" id="gas_comment" name="gas_comment" >
+        <h4>Recommended Advisor:</h4>
+        <input type="text" pattern="[a-zA-Z]*" class="form-control" placeholder="Advisor Name" id="advisor" name="advisor" >
+        <br>
+    <input type="submit" id='submit' value="Submit Review"> -->
+    <input class="press" type="submit" id='submit' value="Submit Review">
+  </form>
+  {% endfor %}  
+</div>
+  <a class="press" href="/">Home</a>
+</section>
+</body>
+</html>

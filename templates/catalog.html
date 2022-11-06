@@ -1,0 +1,46 @@
+<html>
+  <head>
+    <title>Course Catalog</title>
+    <link href="/static/css/general_table.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <h2 style="text-align:center" >Course Catalog</h2>
+    <th>
+      <form method="GET" action="/coursecatalogsearch">
+          <input placeholder="Search Courses..." type="text" name="query">
+      </form>
+    </th>
+      <div class="table_wrapper">
+        <table class="fl-table" style ="width: 100%">
+            <thead class="table-light">
+              <tr>
+                <th>Subject</th>
+                <th>Course</th>
+                <th>Title</th>
+                <th>Credit Hours</th>
+                <th>Days</th>
+                <th>Time Slot</th>
+              </tr>
+            </thead>
+            <tbody class="table-border-bottom-0">
+              {% for course in courses: %}
+                <tr>
+                  <td> {{course['dept']}}</td>
+                  <td> {{course['cnum']}}</td>
+                  <td> {{course['title']}}</td>
+                  <td> {{course['credits']}}</td>
+                  <td> {{course['day']}}</td>
+                  <td> {{course['start_time']}} - {{course['end_time']}}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+        </table>
+     
+        <hr class="my-5" />
+        <a type="button" href="/" class="press">
+          <span class="tf-icons bx bx-home-alt"></span>&nbsp; Home
+        </a>
+      </div>
+  </body>
+
+</html>

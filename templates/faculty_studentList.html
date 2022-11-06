@@ -1,0 +1,58 @@
+<html>
+<head>
+<title>faculty_studentList</title>
+<link href="/static/css/general_table.css" rel="stylesheet" type="text/css" />
+</head>
+
+<h1>Students</h1>  
+
+<body>
+  <div class="table-wrapper">
+    <table class="fl-table" style = "width: 100%">
+      <thead>
+        <tr>
+          <th>UID</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Program</th>
+          <th>Grad Status</th>
+          <th>Thesis Status</th>
+          <th>
+            <form method="GET" action="/faculty_studentListsearch">
+                <input placeholder="Search Students..." type="text" name="query">
+            </form>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for result in results: %} 
+        <tr>
+          <td>    {{ result['uid'] }}    </td>
+          <td>    {{ result['fname'] }}   </td>
+          <td>   {{ result['lname'] }}    </td>
+          <td>    {{ result['program'] }}   </td>
+          <td>   {{ result['grad_status'] }}   </td>
+          <td>   {{ result['thesis_status'] }}   </td>
+          <td>  
+            <form action="/faculty_studentList" method="POST">
+              <input type="hidden" id="student_id" name="student_id" value= {{ result[ 'uid' ] }}>
+              <input class="press" type="submit" name = "programStudy" value="Program Study">
+            </form>
+          </td>
+          <td>  
+            <form action="/faculty_studentList" method="POST">
+              <input type="hidden" id="student_id2" name="student_id2" value= {{ result[ 'uid' ] }}>
+              <input class="press" type="submit" name = "getStudent_Transcript" value="Transcript">
+            </form>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+
+<form action="/faculty_studentList" method = "POST">
+  <input class="press" type="submit" value ="Back to Home" name = "Button">
+</form>
+</html>

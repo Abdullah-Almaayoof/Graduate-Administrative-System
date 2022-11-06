@@ -1,0 +1,221 @@
+<link href="/static/css/formone.css" rel="stylesheet" type="text/css" />
+<!-- <link href="/static/css/gsreview.css" rel="stylesheet" type="text/css"/>  -->
+
+   
+<section class="course1">
+  <div>
+    <div class="course-col">
+      <h2 style="text-align:center">{{ id }} : {{ name }} </h2>
+      <h3 style="text-align:center"> {{error}}</h3>
+    </div>
+  </div>
+</section>
+
+<!-- <h2 style="text-align:center">{{ id }} : {{ name }} </h2>
+<h3 style="text-align:center"> {{error}}</h3>
+<body style="text-align:center"><p>10 courses required to satisfy either PHD or MS</p></body> -->
+<!-- <style>
+  .x:after {
+    content:" *";
+    color: red;
+  }
+</style> -->
+<!-- <section class="course"> -->
+<form action ="/form" method = "POST">
+  <section class="course">
+    <div class="row">
+      <div class = "course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 1</label>
+          <select id="inputSub" class="form-control" name="input1dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input1crn" required>
+        </div>
+      </div>
+      <div class = "course-col">  
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 2</label>
+          <select id="inputSub" class="form-control" name="input2dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class ="x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input2crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 3</label>
+          <select id="inputSub" class="form-control" name="input3dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input3crn" required>
+        </div>
+      </div>
+      <br>
+    </div>
+    <div class="row">
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 4</label>
+          <select id="inputSub" class="form-control" name = "input4dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input4crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 5</label>
+          <select id="inputSub" class="form-control" name ="input5dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input5crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Cousr Dept. 6</label>
+          <select id="inputSub" class="form-control" name="input6dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class ="x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name="input6crn" required>
+        </div>
+      </div>
+    </div>
+      <br>
+    <div class="row">
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 7</label>
+          <select id="inputSub" class="form-control" name="input7dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name = "input7crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 8</label>
+          <select id="inputSub" class="form-control" name ="input8dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name = "input8crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 9</label>
+          <select id="inputSub" class="form-control" name="input9dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name ="input9crn" required>
+        </div>
+      </div>
+    </div>
+      <br>
+    <div class="row">
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 10</label>
+          <select id="inputSub" class="form-control" name = "input10dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip" class = "x">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name = "input10crn" required>
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 11</label>
+          <select id="inputSub" class="form-control" name = "input11dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name = "input11crn">
+        </div>
+      </div>
+      <br>
+      <div class="course-col">
+        <div class="form-group col-md-4">
+          <label for="inputSub">Course Dept. 12</label>
+          <select id="inputSub" class="form-control" name = "input12dep">
+            <option selected>CSCI</option>
+            <option>ECE</option>
+            <option>MATH</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Course Number</label>
+          <input type="text" class="form-control" id="inputZip" minlength="4" maxlength="4" name = "input12crn">
+        </div>
+      </div>
+    </div>
+      <br>
+        
+      <button type="submit" class="press" name = "Button" value = "a">Submit</button>
+    </div>
+  <!-- </section> -->
+  </form>
+  <form action = "/form" method = "POST">
+    <button type = "submit" class="press" name = "Button" value = "b"> Back to Home</button>
+  </form>
+</section>

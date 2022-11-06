@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title> INFO </title>
+        <link href="/static/css/style2.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <main class="main">
+            <aside class="sidebar">
+            <nav class="nav">
+                <ul>
+                <li class="active"><a href="#">Welcome</a></li>
+                <li><a href="/faculty_studentList">Student List</a></li>
+                <li><a href="/update_info">Edit Personal Info</a></li>
+                <li><a href="/grade_entry">Update Grades</a></li>
+                <li><a href="/view_thesis">Review Thesis for PHD students</a></li>
+                <li><a href="/reviewer">Applications</a></li>
+                <li><a href="/coursecatalog">View Course Catalog</a></li>
+                <li><a href ="/logout"> Sign Out</a></li>
+             
+                </ul>
+            </nav>
+            </aside>
+        </main>
+            <section class="title">
+                <div class="container1">
+                    <p>Welcome {{results['fname']}}</p>
+                </div>
+            </section>
+            <section class="info">
+                <div class="container1">
+                    <p>UID: {{results['uid']}}</p>
+                    <p>Name: {{results['fname']}} {{results['lname']}}</p>
+                </div>
+            </section>
+    </body>
+</html>

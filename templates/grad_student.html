@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title> INFO </title>
+        <link href="/static/css/style2.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <main class="main">
+            <aside class="sidebar">
+            <nav class="nav">
+                <ul>
+                    <li class="active" style="font-size: .7vw"><a href="#">Gargantua Univeristy</a></li>
+                        <li class="active"><a href="#">Application</a></li>
+                        <li><a href="/applicant">Application Status</a></li>
+
+                        <li class="active"><a href="#">Registration</a></li>
+                        <li><a href="/coursecatalog">Course Catalog</a></li>
+                        <li><a href="/register">Register for Classes</a></li>
+                        <li><a href="/enrollment">Enrolled Classes</a></li>
+
+                        <li class="active"><a href="#">Advising</a></li>
+                        <li><a href="/transcript">Graduate Application</a></li>
+                        <li><a href="/update_info">Edit Personal Info</a></li>
+                        <li><a href="/form">Form One</a></li>
+                        {% if results['program'] == 'PHD'%}
+                        <li><a href="/enter_PHDinfo">PHD-Thesis</a></li>
+                        {% endif %}
+
+                        <li class="active"><a href ="/logout">Sign Out</a></li>
+                </ul>
+            </nav>
+            </aside>
+        </main>
+            <section class="title">
+                <div class="container1">
+                    <p>Welcome {{results['fname']}}</p>
+                </div>
+            </section>
+            <section class="info">
+                <div class="container1">
+                    <p>UID: {{results['uid']}}</p>
+                    <p>Email: {{results['email']}}</p>
+                    <p>Address: {{results['address']}}</p>
+                    <p>Program: {{results['program']}}</p>
+                    <!-- <p>Phone Number: {{results['phonenmbr']}}</p> -->
+                </div>
+            </section>
+    </body>
+</html>

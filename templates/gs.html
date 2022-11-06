@@ -1,0 +1,90 @@
+<html>
+<head>
+<title>admin_student_facultyList</title>
+<link href="/static/css/general_table.css" rel="stylesheet" type="text/css">
+</head>
+{% if not formsExist %}
+  <div id="signInButton">
+    <h3>No applications</h3>
+  </div>
+{% endif %}
+<h1>Applications</h1>
+<body>  
+  {{mess}}
+  <div class="table_wrapper">
+    <table class="fl-table" style ="width: 100%">
+      <thead>
+        <tr>
+        <th>Date</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Student ID</th>
+        <th>
+          <form method="GET" action="/gssearch">
+              <input placeholder="Search Applications..." type="text" name="query">
+          </form>
+        </th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in forms: %} 
+        <tr>
+          <td>    {{ row.get('date') }}    </td>
+          <td>    {{ row.get('fname') }}   </td>
+          <td>    {{ row.get('lname') }}   </td>
+          <td>   {{ row.get('id') }}    </td>
+          <td>  
+            <a class="press" href="/review_application/{{row.get('id')}}"> View</a>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</body>
+  <br>
+  <form action="/admin_student_facultyList" method = "POST">
+    <input class="press" type="submit" value ="Back to Home" name = "Button">
+  </form>
+</html>
+
+
+
+
+
+<!-- <html>
+    <head>
+        <title>GS Page</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+    </head> 
+    <body style="background-color:floralwhite">
+        <div class="text text-center">
+            {{mess}}
+            <h1>GS View</h1>
+            <table style = "width:80%" class="text text-center">
+                <h2>Completed Applications below</h2>
+                <a href="/logout">Sign Out</a>
+                <h3>Welcome back, Graduate Secretary!</h3>
+
+
+                <div class="display">
+                    <div class="forms">
+                        <h4 align="left"> Forms: </h4>
+                        {% if not formsExist %}
+	                        <div id="signInButton">
+		                        <h3>No applications</h3>
+                            </div>
+                        {% endif %}
+                            <ul>
+                                {% for row in forms %}
+                                <li align="left"><a href="/review_application/{{row.get('id')}}">{{row.get('id')}}
+                                {{row.get('fname')}}   {{row.get('lname')}}
+                                </a></li>
+                                {% endfor %}
+                            </ul>
+                    </div>
+                </div>
+            </table>
+        </div>
+    </body>
+</html> -->

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  	<title>Create User</title>
+    <link href="/static/css/style2.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="/static/css/create_user.css">
+    <body class = "create_user">
+      <div class="login-box">
+        <h2>Create User</h2>
+        <h2>{{ msg }}</h2>
+        <form action="/create_user" method="POST">
+          <div class="user-box">
+            <input type = "text" name="uname" placeholder="USERNAME">
+            <input type = "text" name="password" placeholder="PASSWORD" required="">
+            <!-- <input type = "text" name="name" placeholder="NAME" required=""> -->
+            {% if check == 'check' %}
+            <input type = "text" name="role" value = "student" readonly>
+            {% else %}
+            <input type = "text" name="role" placeholder="ROLE">
+            {% endif %}
+            <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <input type = "submit" value = "Submit" name = "Button" placeholder="Submit">
+            </a>
+          </form>
+          <a>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>    
+            <form action="/create_user" method = "POST">
+              <input type="submit" value ="Home" name = "Button">
+            </form>
+          </a>
+      </div>
+    </body>
+</html>

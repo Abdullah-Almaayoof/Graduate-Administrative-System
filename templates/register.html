@@ -1,0 +1,130 @@
+ <!DOCTYPE html>
+
+  <!-- =========================================================
+  * Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
+  ==============================================================
+  
+  * Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
+  * Created by: ThemeSelection
+  * License: You must have a valid license purchased in order to legally use the theme for your project.
+  * Copyright ThemeSelection (https://themeselection.com)
+  
+  =========================================================
+   -->
+  <!-- beautify ignore:start -->
+  <html>
+    <head>
+      <title>Register</title>
+      <link href="/static/css/general_table.css" rel="stylesheet" type="text/css">
+    </head>
+  <body>
+    <div class="container-xxl flex-grow-1 container-p-y">
+      {% if err == 1: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        This is a danger dismissible alert — check it out!
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      {% if err == 2: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        Error: Cannot register for {{prtitle}} without proper prerequisite(s).
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      {% if err == 3: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        Error: Cannot register due to time conflict with courses {{course1}} and {{course2}}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      {% if err == 3.5: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        Error: Cannot register {{course1}} due to time conflict with {{course2}}.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      {% if err == 4: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        Error: No courses added to regsitration list.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+      {% if err == 5: %}
+      <div class="alert alert-danger alert-dismissible" role="alert" style="color:red">
+        Error: Cannot register for {{course1}} as it has already been taken.
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      </div>
+      {% endif %}
+
+      
+<div class="table_wrapper">
+    <table class="fl-table" style ="width: 100%">
+      <thead class="table-light">
+      <tr>
+        <th>Subject</th>
+        <th>Course</th>
+        <th>Title</th>
+        <th>Credit Hours</th>
+        <th>Day</th>
+        <th>Time Slot</th>
+        <th>
+          <form method="GET" action="/registersearch">
+              <input placeholder="Search Courses..." type="text" name="query">
+          </form>
+        </th>
+      </tr>
+      </thead>
+      <tbody class="table-border-bottom-0">
+      
+      {% for course in courses: %}
+        <tr>
+          <td> {{course['dept']}}</td>
+          <td> {{course['cnum']}}</td>
+          <td> {{course['title']}}</td>
+          <td> {{course['credits']}}</td>
+          <td> {{course['day']}}</td>
+          <td> {{course['start_time']}} - {{ course['end_time'] }}</td>
+          {% if course['courseid'] in session['cart']: %}
+            <form action= '/remove/{{ course['courseid'] }}' method="POST">
+            <td> <input type="submit" class="press" value="Remove course"></td>
+            </form>
+          {% else: %}
+          <form action= '/register/{{ course['courseid'] }}' method="POST">
+          <td> <input type="submit" class="press" value="Add course"></td>
+          </form>
+          {% endif %}
+        </tr>
+      {% endfor %}
+    </tbody>
+      </table>
+</div>
+
+      <a type="button" href="/submit" class="press">
+        <span class="tf-icons bx bxs-user-check"></span>&nbsp; Complete Registration
+      </a>
+
+      <a type="button" href="/" class="press">
+        <span class="tf-icons bx bx-home-alt"></span>&nbsp; Home
+      </a>
+
+      <script src="/static/assets/vendor/libs/jquery/jquery.js"></script>
+      <script src="/static/assets/vendor/libs/popper/popper.js"></script>
+      <script src="/static/assets/vendor/js/bootstrap.js"></script>
+      <script src="/static/assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+  
+      <script src="/static/assets/vendor/js/menu.js"></script>
+      <!-- endbuild -->
+  
+      <!-- Vendors JS -->
+  
+      <!-- Main JS -->
+      <script src="/static/assets/js/main.js"></script>
+  
+      
+    
+    
+  </body>
+
+</html>
+
+

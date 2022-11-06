@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title> INFO </title>
+        <link href="/static/css/style2.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body>
+        <main class="main">
+            <aside class="sidebar">
+            <nav class="nav">
+                <ul>
+                <li class="active"><a href="#">Welcome</a></li>
+                <li class="active"><a href="#">Management</a></li>
+                <li><a href="/update_info">Edit Personal Info</a></li>
+                <li><a href="/faculty_studentList">View All students</a></li>
+                <li><a href="/cac">Applications</a></li>
+
+                <li class="active"><a href="#">Advising</a></li>
+                <li><a href="/admin_student_facultyList">Faculty Student List</a></li>
+                <li><a href="/assign_faculty_student">Assign to Student</a></li>
+                <li><a href="/review_grad_status">Approve Grad Requests</a></li>
+
+                <li class="active"><a href="#">Registration</a></li>
+                <li><a href="/grade_entry">Update Student Grades</a></li>
+                <li><a href="/coursecatalog">View Course Catalog</a></li>
+                
+
+                
+                <li class="active"><a href ="/logout"> Sign Out</a></li>
+                </ul>
+            </nav>
+            </aside>
+        </main>
+            <section class="title">
+                <div class="container1">
+                    <p>Welcome {{results['fname']}}</p>
+                </div>
+            </section>
+            <section class="info">
+                <div class="container1">
+                    <p>UID: {{results['uid']}}</p>
+                    <p>Name: {{results['fname']}} {{results['lname']}}</p>
+                    <p>Type User: {{results['role']}}</p>
+                </div>
+            </section>
+    </body>
+</html>

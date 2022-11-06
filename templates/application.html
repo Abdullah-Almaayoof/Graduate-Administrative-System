@@ -1,0 +1,296 @@
+<html>
+  <head>
+    <title>
+      signup Page
+    </title>
+    <!-- Bootstrap 4.6 -->
+<!-- Other Grepper results are for 3.4.1 -->
+<!-- Latest minified CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lux/bootstrap.min.css">
+
+<!-- JS Bundle and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<link href="/static/css/gsreview.css" rel="stylesheet" type="text/css"/> 
+  </head>
+<body style="text-align: center;" style="background-color: #79d0eb;">
+<div style="background-color: gray;">
+  <form action="/application" method="POST" autocomplete="off">
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h2 style="color:white">Please fill out application below</h2>
+          <h4 align='center'> {{errmsg}} </h4>
+        </div>
+      </div>
+    </section>
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h4 align='center' style='color:white'> Applying for Degree: </h4>
+          <label for="choice">MS or PHD.:</label><br>
+          <select name="choice" id="pet-select">
+            <option value="MS">MS</option>
+            <option value="PHD">PHD</option>
+        </select><br>
+        </div>
+      </div>
+    </section>
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h2 align="cenetr" id="ItemName" style='color:white'>Prior Degrees</h2>
+        </div>
+      </div>
+    </section>
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h4 align="cenetr" id="BS" style='color:white'>First Degree</h4>
+          <label for="priorDeg1">BS/BA or MS*:</label><br>
+          <select name="priorDeg1" id="">
+            <option value="BA">BA</option>
+            <option value="BS">BS</option>
+            <option value="MS">MS</option>
+          </select><br>
+  
+          <label for="priorDeg1Major">Major*:</label><br>
+          <input required type="text" pattern="[a-z A-Z ]*" class="form-control"placeholder="Enter Major" id="priorDeg1Major" name="priorDeg1Major" ><br>
+          <label for="priorDeg1Year">Year*:</label><br>
+          <input required type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="priorDeg1Year" name="priorDeg1Year" ><br>
+          <label for="priorDeg1GPA">GPA*:</label><br>
+          <input required type="number" min="0" step="0.01" max="4" class="form-control"placeholder="Enter GPA" id="priorDeg1GPA" name="priorDeg1GPA" ><br>
+          <label for="priorDeg1Uni">University*:</label><br>
+          <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Univeristy name" id="priorDeg1Uni" name="priorDeg1Uni" ><br>
+        </div>
+      </div>
+    </section>
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h4 align="center" id="ItemName" style='color:white'>Second Degree</h4>
+          <label for="priorDeg2">BS/BA or MS:</label><br>
+          <select name="priorDeg2" id="">
+            <option value=""></option>
+            <option value="BA">BA</option>
+            <option value="BS">BS</option>
+            <option value="MS">MS</option>
+          </select><br>
+  
+          <label for="priorDeg2Major">Major:</label><br>
+          <input type="text" pattern="[a-z A-Z ]*" class="form-control"placeholder="Enter Major" id="priorDeg2Major" name="priorDeg2Major" ><br>
+          <label for="priorDeg2Year">Year:</label><br>
+          <input type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="priorDeg2Year" name="priorDeg2Year" ><br>
+          <label for="priorDeg2GPA">GPA:</label><br>
+          <input type="number" min="0" step="0.01" max="4" class="form-control"placeholder="Enter GPA" id="priorDeg2GPA" name="priorDeg2GPA" ><br>
+          <label for="priorDeg2Uni">University:</label><br>
+          <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Univeristy name" id="priorDeg2Uni" name="priorDeg2Uni" ><br>
+        </div>
+      </div>
+    </section>
+
+    <section class="course1">
+      <div>
+        <div class="course-col">
+          <h3 align="center" id="ItemName" style='color:white' >Area of Interest</h3>
+          <label  for="interestIn">Interest:</label><br>
+          <input required type="text"pattern="[a-zA-Z]*"class="form-control"placeholder="Enter Area of Interest" id="interestIn" name="interestIn" ><br>
+        </div>
+      </div>
+    </section>
+
+    <section class="course">
+      <div class="row">
+        <div class="course-col">
+          <h4 align="center" id="ItemName" style='color:white' >GRE</h4>
+          <h5 align="center" style='color:white' >Note: GRE scores are only required for PhD. applications</h5>
+            <label  for="greVerbal">GRE Verbal:</label><br>
+            <input  type="number" max="170" class="form-control"placeholder="Enter GRE Verbal Score" id="greVerbal" name="greVerbal" ><br>
+            <label  for="greQuant">GRE Quantitative:</label><br>
+            <input  type="number" max="170" class="form-control"placeholder="Enter GRE Quantitative Score" id="greQuant" name="greQuant" ><br>
+            <label  for="greYear">Year Taken:</label><br>
+            <input  type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="greYear" name="greYear" ><br>
+            <label  for="greAdvSub">Enter advanced subject(optional):</label><br>
+            <input  type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Advanced subject" id="greAdvSub" name="greAdvSub" ><br>
+            <label  for="greAdvScore">Enter advanced subject scores(optional):</label><br>
+            <input  type="number" min="200" max="990" class="form-control"placeholder="Enter Advanced subject score" id="greAdvScore" name="greAdvScore" ><br>
+        </div>
+        
+        <div class="course-col">
+          <h4 align="center" id="ItemName" style='color:white'>TOEFL(International)</h4>
+          <label for="tflScore">TOEFL Score:</label><br>
+          <input type="number" max="120" class="form-control"placeholder="Enter TOEFL Score" id="tflScore" name="tflScore" ><br>
+          <label for="tflDate">Year taken:</label><br>
+          <input type="number" min="1900" max="2022" class="form-control"placeholder="Enter TOEFL Year" id="tfDate" name="tflDate" ><br>
+          <h4 align="center" id="ItemName" style='color:white'>Previous Experience</h4>
+          <label for="experience1">Experience:</label><br>
+          <input type="text"class="form-control"placeholder="Enter Experience" id="experience" name="experience" ><br>
+          <h4 align="center" id="ItemName" style='color:white'>Admission Date</h4>
+          <label  for="">Semester:</label><br>
+          <select name="adminSem" id="">
+            <option value="Fall">Fall</option>
+            <option value="Spring">Spring</option>
+          </select><br>
+          <label  for="">Year:</label><br>
+          <input required type="number" min="2022" max="2023" class="form-control"placeholder="Enter admission date" id="adminYear" name="adminYear" ><br>
+        </div>
+        
+                
+        <div class="course-col">
+          <h4 align="center" id="ItemName" style='color:white' >Reference</h4>
+        <!-- <h6 align="left" id="ItemName">First Reference</h6> -->
+          <label for="">Reference First Name:</label><br>
+          <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's first name" id="reference1Fname" name="reference1Fname" ><br>
+          <label for="">Reference Last Name:</label><br>
+          <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's last name" id="reference1Lname" name="reference1Lname" ><br>
+          <label for="">Reference Email:</label><br>
+          <input required type="email"class="form-control"placeholder="Enter your reference's email" id="reference1Email" name="reference1Email" ><br>
+          <label for="">Reference Title:</label><br>
+          <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's title" id="reference1Title" name="reference1Title" ><br>
+          <label for="">Reference Affiliation:</label><br>
+          <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's affiliation" id="reference1Affil" name="reference1Affil" ><br>
+        </div>
+      </div>
+    </section>
+
+    
+
+
+  <!-- <div class="text text-center">
+    <h2>Please fill out application below</h2>
+    <h6 align='left'> {{errmsg}} </h6> -->
+
+    <!-- FIX RADIO BUTTON -->
+    <!-- <h4 align='left'> Applying for Degree: </h4>
+      <label for="choice">MS or PHD.:</label><br>
+      <select name="choice" id="pet-select">
+        <option value="MS">MS</option>
+        <option value="PHD">PHD</option>
+    </select><br> -->
+<!-- 
+    <h4 align="left" id="ItemName">Prior Degrees</h4> -->
+      <!-- First Degree -->
+      <!-- <h6 align="left" id="BS">First Degree</h6>
+        <label for="priorDeg1">BS/BA or MS*:</label><br>
+        <select name="priorDeg1" id="">
+          <option value="BA">BA</option>
+          <option value="BS">BS</option>
+          <option value="MS">MS</option>
+        </select><br>
+
+        <label for="priorDeg1Major">Major*:</label><br>
+        <input required type="text" pattern="[a-z A-Z ]*" class="form-control"placeholder="Enter Major" id="priorDeg1Major" name="priorDeg1Major" ><br>
+        <label for="priorDeg1Year">Year*:</label><br>
+        <input required type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="priorDeg1Year" name="priorDeg1Year" ><br>
+        <label for="priorDeg1GPA">GPA*:</label><br>
+        <input required type="number" min="0" step="0.01" max="4" class="form-control"placeholder="Enter GPA" id="priorDeg1GPA" name="priorDeg1GPA" ><br>
+        <label for="priorDeg1Uni">University*:</label><br>
+        <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Univeristy name" id="priorDeg1Uni" name="priorDeg1Uni" ><br> -->
+          
+
+      <!-- Second Degree -->
+      <!-- <h6 align="left" id="ItemName">Second Degree</h6> -->
+        <!-- <label for="priorDeg2">BS/BA or MS:</label><br>
+        <select name="priorDeg2" id="">
+          <option value=""></option>
+          <option value="BA">BA</option>
+          <option value="BS">BS</option>
+          <option value="MS">MS</option>
+        </select><br>
+
+        <label for="priorDeg2Major">Major:</label><br>
+        <input type="text" pattern="[a-z A-Z ]*" class="form-control"placeholder="Enter Major" id="priorDeg2Major" name="priorDeg2Major" ><br>
+        <label for="priorDeg2Year">Year:</label><br>
+        <input type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="priorDeg2Year" name="priorDeg2Year" ><br>
+        <label for="priorDeg2GPA">GPA:</label><br>
+        <input type="number" min="0" step="0.01" max="4" class="form-control"placeholder="Enter GPA" id="priorDeg2GPA" name="priorDeg2GPA" ><br>
+        <label for="priorDeg2Uni">University:</label><br>
+        <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Univeristy name" id="priorDeg2Uni" name="priorDeg2Uni" ><br> -->
+          
+<!-- 
+    <h4 align="left" id="ItemName">Area of Interest</h4>
+      <label  for="interestIn">Interest:</label><br>
+      <input required type="text"pattern="[a-zA-Z]*"class="form-control"placeholder="Enter Area of Interest" id="interestIn" name="interestIn" ><br> -->
+        
+
+
+    <!-- <h4 align="left" id="ItemName">GRE</h4>
+    <h6 align="left">Note: GRE scores are only required for PhD. applications</h6>
+      <label  for="greVerbal">GRE Verbal:</label><br>
+      <input  type="number" max="170" class="form-control"placeholder="Enter GRE Verbal Score" id="greVerbal" name="greVerbal" ><br>
+      <label  for="greQuant">GRE Quantitative:</label><br>
+      <input  type="number" max="170" class="form-control"placeholder="Enter GRE Quantitative Score" id="greQuant" name="greQuant" ><br>
+      <label  for="greYear">Year Taken:</label><br>
+      <input  type="number" min="1900" max="2022" class="form-control"placeholder="Enter Year" id="greYear" name="greYear" ><br>
+      <label  for="greAdvSub">Enter advanced subject(optional):</label><br>
+      <input  type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter Advanced subject" id="greAdvSub" name="greAdvSub" ><br>
+      <label  for="greAdvScore">Enter advanced subject scores(optional):</label><br>
+      <input  type="number" min="200" max="990" class="form-control"placeholder="Enter Advanced subject score" id="greAdvScore" name="greAdvScore" ><br> -->
+    
+
+
+    <!-- <h4 align="left" id="ItemName">TOEFL(International)</h4>
+      <label for="tflScore">TOEFL Score:</label><br>
+      <input type="number" max="120" class="form-control"placeholder="Enter TOEFL Score" id="tflScore" name="tflScore" ><br>
+      <label for="tflDate">Year taken:</label><br>
+      <input type="number" min="1900" max="2022" class="form-control"placeholder="Enter TOEFL Year" id="tfDate" name="tflDate" ><br> -->
+      
+
+
+<!-- 
+    <h4 align="left" id="ItemName">Previous Experience</h4>
+      <label for="experience1">Experience:</label><br>
+      <input type="text"class="form-control"placeholder="Enter Experience" id="experience" name="experience" ><br> -->
+      
+
+
+    <!-- <h4 align="left" id="ItemName">Admission Date</h4>
+      <label  for="">Semester:</label><br>
+      <select name="adminSem" id="">
+        <option value="Fall">Fall</option>
+        <option value="Spring">Spring</option>
+      </select><br> -->
+<!-- 
+      <label  for="">Year:</label><br>
+      <input required type="number" min="2022" max="2023" class="form-control"placeholder="Enter admission date" id="adminYear" name="adminYear" ><br> -->
+      
+
+    <!-- <h4 align="left" id="ItemName">Reference</h4> -->
+      <!-- <h6 align="left" id="ItemName">First Reference</h6> -->
+        <!-- <label for="">Reference First Name:</label><br>
+        <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's first name" id="reference1Fname" name="reference1Fname" ><br>
+        <label for="">Reference Last Name:</label><br>
+        <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's last name" id="reference1Lname" name="reference1Lname" ><br>
+        <label for="">Reference Email:</label><br>
+        <input required type="email"class="form-control"placeholder="Enter your reference's email" id="reference1Email" name="reference1Email" ><br>
+        <label for="">Reference Title:</label><br>
+        <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's title" id="reference1Title" name="reference1Title" ><br>
+        <label for="">Reference Affiliation:</label><br>
+        <input required type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's affiliation" id="reference1Affil" name="reference1Affil" ><br> -->
+        
+      <!-- <h6 align="left" id="ItemName">Second Reference</h6>
+        <label for="">Reference First Name:</label><br>
+        <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's first name" id="reference2Fname" name="reference2Fname" ><br>
+        <label for="">Reference Last Name:</label><br>
+        <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's last name" id="reference2Lname" name="reference2Lname" ><br>
+        <label for="">Reference Email:</label><br>
+        <input type="email"class="form-control"placeholder="Enter your reference's email" id="reference2Email" name="reference2Email" ><br>
+        <label for="">Reference Title:</label><br>
+        <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's title" id="reference2Title" name="reference2Title" ><br>
+        <label for="">Reference Affiliation:</label><br>
+        <input type="text"pattern="[a-z A-Z ]*"class="form-control"placeholder="Enter your reference's affiliation" id="reference2Affil" name="reference2Affil" ><br> -->
+        
+
+
+        <input class="press" type="submit" value="Apply">
+        <a class="press" href="/">Home</a>
+      </div>
+      </form>
+</body>
+</html>
+

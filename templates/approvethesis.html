@@ -1,0 +1,22 @@
+<html>
+    <head>
+    <title>Approve Thesis</title>
+    </head>
+    <link href="/static/css/style2.css" rel="stylesheet" type="text/css" />
+
+    <h1>All Pending Requests</h1>
+    {% if info == "" or info == [] %}
+    <p>No current Requests</p>
+    {% endif %}
+        {% for i in info %}
+        <h2>{{i['fname']}} {{i['lname']}}</h2>
+            <form action="/view_thesis" method="POST">
+                <p style="border:3px; border-style:solid; border-color:#FF0000; padding: 1em;">{{i['thesis']}}</p>
+                <input class="press" type = "submit" value = "Approve" name = "Button">
+                <input type = "hidden" name = "uid" value ="{{i['uid']}}">
+              </form>
+        {% endfor %} 
+        <form action="/view_thesis" method = "POST">
+            <input class="press" type="submit" value ="Back to Home" name = "Button">
+        </form>       
+</html>
