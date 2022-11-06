@@ -1,0 +1,153 @@
+@import "bourbon@5.*";
+@import "color-schemer";
+@import "breakpoint";
+@import "susy";
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+html {
+    font-family: Arial;
+    font-size: 16px;
+    background: #dee5f0;
+}
+.sidebar {
+    position: fixed;
+    width: 25%;
+    height: 100vh;
+    background: #12132e;
+    font-size: 0.5em;
+    overflow-y: scroll;
+}
+.nav {
+    position: absolute;
+    margin: 0 15%;
+    text-align: left;
+    top: 55%;
+    transform: translateY(-50%);
+    font-weight: bold;
+}
+.nav ul {
+    list-style: none;
+}
+.nav ul li {
+    position: relative;
+    margin: 3.2em 0;
+}
+.nav ul li a {
+    line-height: 5em;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.4em;
+    color: rgba(255, 255, 255, 0.443);
+    display: block;
+    transition: all ease-out 300ms;
+}
+.nav ul li.active a {
+    color: white;
+}
+.nav ul li:not(.active)::after {
+    opacity: 0.2;
+}
+.nav ul li:not(.active):hover a {
+    color: rgba(255, 255, 255, 0.75);
+}
+.nav ul li::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 0.2em;
+    background: black;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(to right, #79d0eb, #090b57);
+}
+
+.title {
+    position: center;
+    width: 75%;
+    float: right;
+    height: 25vh;
+}
+
+.title .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    text-align: center;
+    height: 100%;
+    font-size: larger;
+}
+
+.title p {
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: rgb(15, 14, 14);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.info {
+    position: relative;
+    width: 75%;
+    float: right;
+    height: 10vh;
+}
+
+.info .container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* text-align: center; */
+    height: 10%;
+    font-size: larger;
+    padding-left: 50px;
+    padding-top: 100px;
+}
+
+.info p {
+    text-transform: uppercase;
+    font-size: 1em;
+    letter-spacing: 0.1em;
+    color: rgb(15, 14, 14);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+.press{
+    display:inline-block;
+    padding:0.7em 1.4em;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.15em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-family:'Roboto',sans-serif;
+    text-transform:uppercase;
+    font-weight:400;
+    color:#FFFFFF;
+    background-color:#12132e;
+    box-shadow:inset 0 -0.6em 0 -0.35em rgba(0,0,0,0.17);
+    text-align:center;
+    position:relative;
+}
+
+.press:active{
+    top:0.1em;
+}
+@media all and (max-width:30em){
+    .press{
+    display:block;
+    margin:0.4em auto;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+ 
